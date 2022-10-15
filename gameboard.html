@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smile Game</title>
+    <style>
+        img {
+            position: absolute;
+        }
+
+        div {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+        }
+
+        #rightSide {
+            left: 500px;
+            border-left: 1px solid;
+        }
+       body {
+            background-image: url(../images/marvelz.png);
+            background-size: 100px;
+        }
+        p {
+            background: crimson;
+            border-radius: 2px;
+            color: rgb(10, 7, 7);
+            padding: auto;
+            max-width: 300px;
+            animation: ease-in;
+
+        }
+        h1 {
+            background: crimson;
+            max-width: 230px;
+        }
+        button {
+            background-color: crimson;
+        }
+        .img1 {
+            animation: forwards;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Matching Game</h1>
+    <button onclick="generateFaces()" id="btn">Start Game</button>
+    <p>Click on the extra smiling face on the left.<br>
+    Wins = <span id="win">0</span> Loses = <span id="los">0</span>
+    <br>How many faces do you want to generate:
+    <input id="numFace" type="number" value="1" style="width: 40px">
+    </p>
+
+
+    <main id="m">
+        <div id="leftSide"><img style="top: 100px; left: 100px;">
+            <!--<img src="./js/faces.png">-->
+        </div>
+        <div id="rightSide"></div>
+    </main>
+    <script>
+        let wins = 0;
+        let loss = 0;
+        let numberOfFaces; //= 5;
+        let img1 = 'img/faces.png';
+        let img2 = '\js\spidey.png';
+        let numFace;
+        let newStart = true;
+        const theLeftSide = document.getElementById('leftSide');
+        const theRightSide = document.getElementById('rightSide');
+       // alert(theRightSide.length)
+        function generateFaces() {
+            if (newStart==true) {
+                numberOfFaces = document.getElementById('numFace').value;
+                numFace = document.getElementById('numFace').value;    
+            }
+            document.getElementById("btn").disabled = true;
+            for (let i = 1; i <= numberOfFaces; i++) {
+                let randomTop = Math.floor(Math.random() * 400);
+                let randomLeft = Math.floor(Math.random() * 400);
+                const face = document.createElement('img');
+                face.src = img1;
+                face.style.top = randomTop + "px";
+                face.style.left = randomLeft + "px";
+               face.style.width = "300px"
+                theLeftSide.appendChild(face);
+               // theRightSide.appendChild(face);
+            }
+            const leftSideImages = theLeftSide.cloneNode(true);
+            leftSideImages.removeChild(leftSideImages.lastChild);
+            theRightSide.appendChild(leftSideImages);
+            theLeftSide.lastChild.addEventListener('click', nextLevel);
+            document.getElementById("m").addEventListener('click', gameOver);
+            
+              //  theLeftSide.lastChild.addEventListener('click', nextLevel);
+           // document.getElementById('m').addEventListener('click', gameOver);
+
+        }
+        function nextLevel(event) {
+            wins = wins + 1;
+            document.getElementById("win").innerHTML = wins;
+            alert('You Win');
+            newStart = false;
+            event.stopPropagation();
+            while (theLeftSide.firstChild) {
+                theLeftSide.removeChild(theLeftSide.firstChild);
+            }
+            theRightSide.innerHTML ='';
+            numberOfFaces = Number(numberOfFaces) + Number(numFace);
+            generateFaces();
+
+        }
+        function gameOver() {
+            loss = loss + 1;
+            document.getElementById("los").innerHTML = loss;
+            alert('You Lose!');
+            document.getElementById("btn").disabled = false;
+            document.getElementById("m").removeEventListener('click', gameOver);
+            theLeftSide.lastChild.removeEventListener('click', nextLevel);
+            while (theLeftSide.firstChild) {
+                theLeftSide.removeChild(theLeftSide.firstChild);
+            }    
+            theRightSide.innerHTML = '';
+           // while (theRightSide.firstChild) {
+               // theRightSide.removeChild(theRightSide.firstChild);
+            //}
+            numberOfFaces = document.getElementById('numFace').value;  //5;
+            newStart = true;
+
+        }
+    </script>
+</body>
+
+</html>

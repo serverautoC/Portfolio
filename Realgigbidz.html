@@ -1,0 +1,159 @@
+<html>
+<header>
+    <style>
+        li {
+            background: crimson;
+            border-radius: 2px;
+            color: rgb(10, 7, 7);
+            max-width: 340px;
+            list-style-type: square;
+            font-size: 40px;
+
+        }
+
+        ul {
+            background-color: gold;
+            border-radius: 2px;
+            max-width: 300px;
+            font-size: 30px;
+        }
+
+        li:hover {
+            background-color: green;
+            border-radius: 2px;
+            max-width: 340px;
+        }
+
+        html {
+            background-image: url("/img/chipz.jpg");
+            background-repeat: repeat-y;
+            background-position: center;
+            background-color: rgb(20, 90, 67);
+        }
+
+        body {
+            background-image: url("/img/chips.png");
+            background-repeat: repeat-y;
+            background-position: right;
+            background-size: 190px;
+        }
+
+        h1 {
+            font-style: oblique;
+            font-size: 50px;
+            color: rgb(186, 204, 82);
+        }
+
+        #menu {
+            float: right;
+            border-radius: 2px;
+            max-width: 300px;
+            font-size: 30px;
+            background-color:gold;
+        }
+        
+        label {
+            display: inline-block;
+            text-align: right;
+            vertical-align: top;
+            max-width: 250px;
+            white-space: pre; 
+            
+        }
+        p {
+            font-style:oblique;
+            font: caption;
+            font-size: larger;
+        }
+    </style>
+</header>
+
+<head>
+    <title>A simple frameset document</title>
+
+</head>
+
+<body>
+    <h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RealGIGBidz
+    </h1>
+   
+<ul>All Your Favorite Sports</ul>
+
+
+<li>Football</li>
+<Li>Basketball</Li>
+<li>Baseball</li>
+<li>Boxing</li>
+<li>UFC</li>
+<li>Tennis</li>
+<li>Soccer</li>
+<li>Collge Football</li>
+ <p id="menu">Winnings Breakdown
+    <br>How do you win on your sheets? Simple, pick right in a the amount required or win the select games, and you can win big!
+ </p>
+   
+   
+   
+    
+
+
+<label for="picksport">Pick sport</label>
+<select name="betpic" id="betpic">
+        <option value="" selected disabled hidden>Choose a Sport</option>
+        <option value="FB">Football</option>
+        <option value="BB">Basketball</option>
+        <option value="BB2">Baseball</option>
+        <option value="BX">Boxing</option>
+        <option value="UC">UFC</option>
+        <option value="Ten">Tennis</option>
+        <option value="Soc">Soccer</option>
+        <option value="CFB">College Football</option>
+        
+        <div>
+        
+        </div>
+        <br><br><br><br><br>
+        <label for="avatar">Upload Your sheet to Submit</label>
+                    <input type="file" name="avatar" id="avatar" required>
+                <div>
+                    <button onClick="showImage()">Button</button>
+                    <div id="first" style="height:400px; width:400px; display:none;">
+                        <img src="./js/MLBsht.png"/>
+                        
+                        <img id="dd" src="/img/NFLsht.png"/>
+                       
+                    </div>
+                    
+                    <script>
+                        const showImage = () => {
+                            document.getElementById("first").style.display ='block';
+                        }
+                    </script>
+                    </div>
+    
+
+</select>
+</body>
+
+</div>
+<script>
+function printpart () {
+    var printwin = window.open("");
+    printwin.document.write(document.getElementById("printthis").innerHTML);
+}
+</script>
+
+<div>
+    
+</div><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<div id="printthis">
+    <img src="/img/MLBsht.png" id="printthis" alt="NFLsht">
+</div><input type="button" value="Week1 NFL sheet" onclick="printpart()"/>
+    <ul>Two Bet Types</ul>
+    <li>Randomized Spread Sheets</li>
+    <li>Over & Under Bids</li>
+    
+
+
+
+</html>
